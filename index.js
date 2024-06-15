@@ -14,7 +14,7 @@ app.use(express.static(path.join(__dirname, '..', 'Public')));
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'Public', 'index.html'));
 });
-app.get('/', (req, res) => {
+app.get('/test', (req, res) => {
   res.send("hello")
 });
 
