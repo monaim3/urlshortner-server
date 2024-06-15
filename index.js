@@ -7,11 +7,11 @@ const baseUrl = `http://localhost:3000/`;
 const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 // Serve static files from the 'public' directory
-// app.use(express.static(path.join(__dirname, '..', 'Public')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, '..', 'Public', 'index.html'));
-// });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+});
 
 app.get('/:shortUrl', (req, res) => {
   const shortUrl = req.params.shortUrl;
