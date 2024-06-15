@@ -3,15 +3,15 @@ const app = express();
 const path = require('path');
 
 const urlMap = new Map();
-const baseUrl = `https://url-shortners.vercel.app/`;
+const baseUrl = `http://localhost:3000/`;
 const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 // Serve static files from the 'public' directory
-app.use(express.static(path.join(__dirname, '..', 'Public')));
+// app.use(express.static(path.join(__dirname, '..', 'Public')));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'Public', 'index.html'));
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '..', 'Public', 'index.html'));
+// });
 
 app.get('/:shortUrl', (req, res) => {
   const shortUrl = req.params.shortUrl;
@@ -46,7 +46,7 @@ function generateShortUrl() {
   return shortUrl;
 }
 
-app.listen(3000, () => {
+app.listen(4000, () => {
   console.log(`Server is running on ${baseUrl}`);
 });
 
