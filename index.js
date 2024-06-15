@@ -1,9 +1,11 @@
+
 const express = require('express');
 const app = express();
 const path = require('path');
-
+require("dotenv").config();
 const urlMap = new Map();
-const baseUrl = `http://localhost:3000/`;
+const baseUrl = process.env.DOMAIN_URL;
+
 const chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 // Serve static files from the 'public' directory
@@ -11,6 +13,9 @@ app.use(express.static(path.join(__dirname, '..', 'Public')));
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'Public', 'index.html'));
+});
+app.get('/', (req, res) => {
+  res.send("hello")
 });
 
 app.get('/:shortUrl', (req, res) => {
